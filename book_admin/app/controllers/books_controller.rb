@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json
+      format.json { render json: @book}
     end
   end
 
@@ -21,7 +21,7 @@ class BooksController < ApplicationController
   private
 
   def set_book
-    @book = find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def action_logger
