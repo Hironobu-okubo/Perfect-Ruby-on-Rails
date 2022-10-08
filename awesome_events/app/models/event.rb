@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  has_many :tickets
+  belongs_to :owner, class_name: 'User'
 
   def created_by?(user)
     return false unless User
