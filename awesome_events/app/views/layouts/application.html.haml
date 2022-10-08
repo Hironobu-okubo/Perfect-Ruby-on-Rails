@@ -11,5 +11,11 @@
     %header.navbar-expand-sm.navbar-light.bg-light
       .container
         = link_to "AwesomeEvents", root_path, class: "navbar-brand"
+        %ul.navbar-nav
+          %li.nav.item
+            = link_to "Guthubでログイン", "/auth/github",class: "nab-link",method: :post
     .container
-    = yield
+      - if flash.notice
+        .alert.alert-success
+          = flash.notice
+      = yield
