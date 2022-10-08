@@ -1,5 +1,10 @@
 class Event < ApplicationRecord
 
+  def created_by?(user)
+    return false unless User
+    owner_id == user.id
+  end
+
   belongs_to :owner, class_name: "User"
   
   validates :name, length: { maximum: 50 }, presence: true
