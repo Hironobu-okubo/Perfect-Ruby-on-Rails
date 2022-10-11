@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   validates :content, length: { maximum: 2000 },presence: true
   validates :start_at, presence: true
   validates :end_at, presence: true
-  validare :start_at_should_be_before_end_at
+  validate :start_at_should_be_before_end_at
 
   private
 
@@ -14,4 +14,5 @@ class Event < ApplicationRecord
     if start_at >= end_at
       errors.add(:start_at,"は終了時間よりも前に設定してください")
     end
+  end
 end
